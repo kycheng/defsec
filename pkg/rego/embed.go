@@ -11,23 +11,23 @@ import (
 	"github.com/open-policy-agent/opa/bundle"
 )
 
-func init() {
+// func init() {
 
-	modules, err := loadEmbeddedPolicies()
-	if err != nil {
-		// we should panic as the policies were not embedded properly
-		panic(err)
-	}
-	loadedLibs, err := loadEmbeddedLibraries()
-	if err != nil {
-		panic(err)
-	}
-	for name, policy := range loadedLibs {
-		modules[name] = policy
-	}
+// 	modules, err := loadEmbeddedPolicies()
+// 	if err != nil {
+// 		// we should panic as the policies were not embedded properly
+// 		panic(err)
+// 	}
+// 	loadedLibs, err := loadEmbeddedLibraries()
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	for name, policy := range loadedLibs {
+// 		modules[name] = policy
+// 	}
 
-	RegisterRegoRules(modules)
-}
+// 	RegisterRegoRules(modules)
+// }
 
 func RegisterRegoRules(modules map[string]*ast.Module) {
 	ctx := context.TODO()
